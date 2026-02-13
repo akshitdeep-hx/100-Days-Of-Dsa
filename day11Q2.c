@@ -24,18 +24,18 @@ int** transpose(int** matrix, int matrixSize, int* matrixColSize, int* returnSiz
   int rows = matrixSize;
     int cols = matrixColSize[0];
     
-    // Transposed matrix will have 'cols' rows and 'rows' columns
+    
     *returnSize = cols;
     *returnColumnSizes = (int*)malloc(cols * sizeof(int));
     
-    // Allocate memory for the transposed matrix
+    
     int** result = (int**)malloc(cols * sizeof(int*));
     for (int i = 0; i < cols; i++) {
         result[i] = (int*)malloc(rows * sizeof(int));
-        (*returnColumnSizes)[i] = rows; // Each row in result has 'rows' columns
+        (*returnColumnSizes)[i] = rows; 
     }
     
-    // Perform transposition: original[i][j] becomes result[j][i]
+    
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             result[j][i] = matrix[i][j];
