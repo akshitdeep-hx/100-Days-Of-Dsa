@@ -21,7 +21,7 @@ Explanation: Among all possible pairs, the sum of -10 and 1 is -9, which is the 
 
 #include <stdio.h>
 #include <stdlib.h>
-
+ INT_MAX = 100;
 
 int compare(const void* a, const void* b) {
     return ((int)a - (int)b);
