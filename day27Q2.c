@@ -1,0 +1,44 @@
+/*
+Given the head of a singly linked list, the task is to remove a cycle if present. A cycle exists when a node's next pointer points back to a previous node, forming a loop. Internally, a variable pos denotes the index of the node where the cycle starts, but it is not passed as a parameter. The terminal will print true if a cycle is removed otherwise, it will print false.
+
+Examples:
+
+Input: head = 1 -> 3 -> 4, pos = 2
+Output: true
+Explanation: The linked list looks like
+
+A loop is present in the list, and it is removed.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void removeLoop(struct Node* head) {
+    if (head == NULL || head->next == NULL) return;
+    
+    struct Node* slow = head;
+    struct Node* fast = head;
+    
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) break;
+    }
+    
+    if (slow != fast) return; 
+    
+
+    slow = head;
+    while (slow->next != fast->next) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+    
+    fast->next = NULL;
+}
