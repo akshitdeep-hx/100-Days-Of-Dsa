@@ -37,17 +37,17 @@ struct ListNode* reverseList(struct ListNode* head) {
 bool isPalindrome(struct ListNode* head) {
     if (head == NULL || head->next == NULL) return true;
     
-    // Find middle
+
     struct ListNode *slow = head, *fast = head;
     while (fast->next != NULL && fast->next->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
     }
     
-    // Reverse second half
+    
     struct ListNode* secondHalf = reverseList(slow->next);
     
-    // Compare
+
     struct ListNode* p1 = head;
     struct ListNode* p2 = secondHalf;
     bool result = true;
