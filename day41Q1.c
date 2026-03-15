@@ -14,7 +14,7 @@ Output Format:
 #include <stdlib.h>
 #include <string.h>
 
-/* Node structure */
+
 typedef struct Node {
     int data;
     struct Node* next;
