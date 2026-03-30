@@ -89,4 +89,6 @@ int main() {
     printf("]\n");
 
     free(res);
-    free
+    free(q);
+    return 0;
+}
